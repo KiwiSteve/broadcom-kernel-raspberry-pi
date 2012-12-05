@@ -195,7 +195,7 @@ static int bcm2708_fb_set_par(struct fb_info *info)
 	fbinfo->xres = info->var.xres;
 	fbinfo->yres = info->var.yres;
 	fbinfo->xres_virtual = info->var.xres_virtual;
-	fbinfo->yres_virtual = info->var.yres_virtual;
+	fbinfo->yres_virtual = info->var.yres * 2;
 	fbinfo->bpp = info->var.bits_per_pixel;
 	fbinfo->xoffset = info->var.xoffset;
 	fbinfo->yoffset = info->var.yoffset;
@@ -350,7 +350,7 @@ static int bcm2708_fb_register(struct bcm2708_fb *fb)
 	fb->fb.var.xres = fbwidth;
 	fb->fb.var.yres = fbheight;
 	fb->fb.var.xres_virtual = fbwidth;
-	fb->fb.var.yres_virtual = fbheight;
+	fb->fb.var.yres_virtual = fbheight * 2;
 	fb->fb.var.bits_per_pixel = fbdepth;
 	fb->fb.var.vmode = FB_VMODE_NONINTERLACED;
 	fb->fb.var.activate = FB_ACTIVATE_NOW;
